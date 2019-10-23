@@ -1,0 +1,24 @@
+﻿@using WebApplication5.Data
+@model IQueryable<WebApplication5.Data.User>
+@{ 
+    ViewData["Title"] = "Home page";
+}
+<div>
+    <a asp-controller="User" asp-action="Edit">Новая статья</a>
+</div>
+<div class="text-center">
+    @foreach (User entity in Model)
+    {
+        <div>
+            @entity.FirstName
+            |
+            <a asp-controller="User" asp-action="Edit" asp-route-id="@entity.Id">редактировать</a>
+            |
+            <form method="post" asp-controller="User" asp-action="Delete">
+                <input type="hidden" name="Id" value="@entity.Id" />
+                <input type="submit" value="удалить" />
+            </form>
+        </div>
+    }
+</div>
+

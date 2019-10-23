@@ -1,0 +1,24 @@
+<div aria-hidden="true">
+    <div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Update Role</h2>
+            </div>
+            <div class="modal-body">
+              <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+                <div>
+                  <div>
+                    <mat-form-field class="example-full-width" style="width: 300px">
+                        <input matInput placeholder="Role" name="role" formControlName="role">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </form>
+              <div>
+                <button color="primary" mat-raised-button [disabled]="editForm.invalid" (click)="save()">Save</button>
+                <button color="warn" mat-raised-button (click)="closeModal()">Cancel</button>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
